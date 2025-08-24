@@ -1,0 +1,3 @@
+/home/archie/Documents/repositories/transistor-logic/cmake-build-debug/CMakeFiles/transistor_logic.dir
+/home/archie/Documents/repositories/transistor-logic/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/archie/Documents/repositories/transistor-logic/cmake-build-debug/CMakeFiles/rebuild_cache.dir
