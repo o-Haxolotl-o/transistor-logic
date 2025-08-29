@@ -91,8 +91,7 @@ int nimply(int input0, int input1);/*
 /*      Latches     */
 int srnand(int S, int R, int *output0, int *output1); /*
 SR NAND latch:
-    First two parameters are input, second two are output,
-    pass variable memory positions as output arguments
+    First two parameters are input, second two are output.
 
     Q and nQ are both passed as inputs to the opposite NAND gate,
     thereby creating an endless loop persisting them unless they are
@@ -102,8 +101,7 @@ parameters: Set, Reset, Q, ~Q
 */
 int srnor(int S, int R, int *output0, int *output1); /*
 SR NOR latch:
-    First two parameters are input, second two are output,
-    pass variable memory positions as output arguments
+    First two parameters are input, second two are output.
 
     Q and nQ are both passed as inputs to the opposite NOR gate,
     thereby creating an endless loop persisting them unless they are
@@ -120,7 +118,12 @@ int fadder(int num0, int num1, int carryIn, int *sum, int *carryOut); /*
 Full Adder
     First parameter is a bit in the first number,
     second parameter is a bit in the second number.
-
+    Third parameter is a carry-in bit allowing chaining.
+    Fourth and fifth parameters are outputs for
+    the sum and carry-out bit respectively.
+    
+    To chain, wire the carry-out bit to the carry-in
+    of another full adder.
     Always fill the carry-in input of the first adder
     in a chain with a zero.
 */
@@ -131,8 +134,13 @@ int fsubtractor(int num0, int num1, int bin, int *diff, int *bout); /*
 Full Subtractor
     First parameter is a bit in the first number,
     second parameter is a bit in the second number.
-
-    Always fill the carry-in input of the first subtractor
+    Third parameter is a borrow-in bit allowing chaining.
+    Fourth and fifth parameters are outputs for
+    the sum and borrow-out bit respectively.
+    
+    To chain, wire the borrow-out bit to the borrow-in
+    of another full subtractor.
+    Always fill the borrow-in input of the first subtractor
     in a chain with a zero.
 */
 

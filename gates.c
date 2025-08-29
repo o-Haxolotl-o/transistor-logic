@@ -2,9 +2,9 @@
 // Created by archie on 8/23/25.
 //
 
-/*          Gates with one output will return its value.                                        */
-/*          Gates with multiple outputs will be passed as argument memory positions.            */
-/*          Gates with multiple outputs, but one main output will do both.                      */
+/*          Gates with one output will return its value.                                                */
+/*          Gates with multiple outputs should be passed as memory positions to relevant arguments.     */
+/*          Gates with multiple outputs, but one main output will do both.                              */
 
 /*      transistors       */
 int npn(int collector, int base) {
