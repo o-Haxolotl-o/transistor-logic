@@ -112,7 +112,7 @@ SR NOR latch:
 parameters: Set, Reset, Q, ~Q
 */
 
-/*      adders     */
+/*      Math     */
 void hadder(int input0, int input1, int *sum, int *carry); /*
 Half Adder
 */
@@ -122,6 +122,17 @@ Full Adder
     second parameter is a bit in the second number.
 
     Always fill the carry-in input of the first adder
+    in a chain with a zero.
+*/
+void hsubtractor(int input0, int input1, int *diff, int *borrow); /*
+Half Subtractor
+*/
+int fsubtractor(int num0, int num1, int bin, int *diff, int *bout); /*
+Full Subtractor
+    First parameter is a bit in the first number,
+    second parameter is a bit in the second number.
+
+    Always fill the carry-in input of the first subtractor
     in a chain with a zero.
 */
 

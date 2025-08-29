@@ -7,9 +7,9 @@ int main(void) {
     int wire1;
     int fin = 0;
 
-    fadder(1, 0, 0, &output0, &wire0);
-    fadder(1, 1, wire0, &output1, &wire1);
-    fadder(0, 0, wire1, &output2, &fin);
+    fsubtractor(1, 0, 0, &output0, &wire0);
+    fsubtractor(1, 1, wire0, &output1, &wire1);
+    fsubtractor(1, 0, wire1, &output2, &fin);
 
     printf("%i, %i, %i\n",
         output0,output1, output2

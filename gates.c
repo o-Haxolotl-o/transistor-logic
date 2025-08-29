@@ -101,7 +101,25 @@ int fadder(int num0, int num1, int carryIn, int *sum, int *carryOut) {
     int wireCarry2Out1; // wire carry of second adder to final OR gate
 
     hadder(num0, num1, &wireSum2B, &wireCarry2Out0);
+    //hadder(num0, not(num1), &wireSum2B, &wireCarry2Out0);
     hadder(carryIn, wireSum2B, sum, &wireCarry2Out1);
     *carryOut = or(wireCarry2Out0, wireCarry2Out1);
     return *carryOut;
+}
+
+int hsubtractor(int input0, int input1, int *diff, int *borrow) {
+    *diff = xor(input0, input1);
+    *borrow = and(not(input0), input1);
+    return *borrow;
+}
+
+int fsubtractor(int num0, int num1, int bin, int *diff, int *bout) {
+    int wireDiff2A; //wire sum of first adder to B input of second
+    int wireCarry2Out0; // wire carry of first subtractor to final OR gate
+    int wireCarry2Out1; // wire carry of second subtractor to final OR gate
+
+    hsubtractor(num0, num1, &wireDiff2A, &wireCarry2Out0);
+    hsubtractor(wireDiff2A, bin, diff, &wireCarry2Out1);
+    *bout = or(wireCarry2Out0, wireCarry2Out1);
+    return *bout;
 }
