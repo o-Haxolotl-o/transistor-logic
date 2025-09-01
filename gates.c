@@ -88,7 +88,7 @@ int srnor(int set, int reset, int *Q, int *nQ) {
 }
 
 
-/*      adders     */
+/*     math     */
 int hadder(int input0, int input1, int *sum, int *carry) {
     *sum = xor(input0, input1);
     *carry = and(input0, input1);
@@ -101,7 +101,6 @@ int fadder(int num0, int num1, int carryIn, int *sum, int *carryOut) {
     int wireCarry2Out1; // wire carry of second adder to final OR gate
 
     hadder(num0, num1, &wireSum2B, &wireCarry2Out0);
-    //hadder(num0, not(num1), &wireSum2B, &wireCarry2Out0);
     hadder(carryIn, wireSum2B, sum, &wireCarry2Out1);
     *carryOut = or(wireCarry2Out0, wireCarry2Out1);
     return *carryOut;
@@ -122,4 +121,19 @@ int fsubtractor(int num0, int num1, int bin, int *diff, int *bout) {
     hsubtractor(wireDiff2A, bin, diff, &wireCarry2Out1);
     *bout = or(wireCarry2Out0, wireCarry2Out1);
     return *bout;
+}
+
+int shift8(const int Dir, const int *A, const int *B, const int *C, const int *D, const int *E, const int *F, const int *G, const int *H, int *sA, int *sB, int *sC, int *sD, int *sE, int *sF, int *sG, int *sH) {
+    const int nD = not(Dir); //D'
+
+    *sA=and(*B, nD);
+    *sB=or(and(*A, Dir),and(*C, nD));
+    *sC=or(and(*B, Dir),and(*D, nD));
+    *sD=or(and(*C, Dir),and(*E, nD));
+    *sE=or(and(*D, Dir),and(*F, nD));
+    *sF=or(and(*E, Dir),and(*G, nD));
+    *sG=or(and(*F, Dir),and(*H, nD));
+    *sH=and(*G, Dir);
+
+    return Dir;
 }

@@ -143,5 +143,15 @@ Full Subtractor
     Always fill the borrow-in input of the first subtractor
     in a chain with a zero.
 */
+int shift8(int Dir, int *A, int *B, int *C, int *D, int *E, int *F, int *G, int *H, int *sA, int *sB, int *sC, int *sD, int *sE, int *sF, int *sG, int *sH); /*
+8 Bit shifter
+    8 bit input and output
+    Parameters A-H are input bits
+    Parameters sA-sH are shifted output bits
+    Dir controls which direction bits are shifted
+
+    Dir=0 <- left shift
+    Dir=1 -> right shift
+*/
 
 #endif //GATES_H
